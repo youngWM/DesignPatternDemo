@@ -1,0 +1,40 @@
+@startuml
+
+    package "builder模式-class" {
+
+        skinparam classAttributeIconSize 0
+        class Director{
+            + constructor()
+        }
+
+        skinparam classAttributeIconSize 0
+        abstract class Builder{
+            + buildA(): void
+            + buildB(): void
+            + buildC(): void
+        }
+
+        skinparam classAttributeIconSize 0
+        class ConcreteBuilder{
+            + buildA()
+            + buildB(): void
+            + buildC(): void
+        }
+
+        skinparam classAttributeIconSize 0
+        class Product{
+
+        }
+
+        Director o-- Builder : 《聚合关系》
+        note right of 聚合关系 : Builder(部分)是Director（整体）的一部分，且部分可以离开整体
+
+        Builder <|-- ConcreteBuilder : 《泛化关系》
+        note right of 泛化关系 : 子类（ConcreteBuilder）继承父类（Builder）
+
+        ConcreteBuilder ..> Product  : 《依赖关系》
+        note right of 依赖关系 : 一个类（ConcreteBuilder）的实现需要另一个类（Product）的协助，因为ConcreteBuilder在组装过程中需要一个Product
+
+    }
+
+@enduml

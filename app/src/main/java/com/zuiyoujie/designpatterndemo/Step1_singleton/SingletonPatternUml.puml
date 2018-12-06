@@ -1,0 +1,22 @@
+@startuml
+
+    package "单例模式-class" {
+
+        skinparam classAttributeIconSize 0
+        class Singleton{
+            -instance: Singleton
+
+            +getInstance(): Singleton
+            +operate()
+            -Singleton()
+        }
+
+        Singleton <.. client : 《依赖》
+    }
+
+    package "单例模式-时序图" {
+    }
+
+
+
+@enduml
