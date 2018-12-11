@@ -26,14 +26,21 @@
 
         }
 
-        Director o-- Builder : 《聚合关系》
-        note right of 聚合关系 : Builder(部分)是Director（整体）的一部分，且部分可以离开整体
+        Director o-- Builder : 聚合关系 :\n Builder(部分)\n是Director(整体)的一部分，\n且部分可以离开整体
+'        note "聚合关系 :\n Builder(部分)\n是Director(整体)的一部分，\n且部分可以离开整体." as N1
+'        Director .. N1
+'        N1 .. Builder
 
-        Builder <|-- ConcreteBuilder : 《泛化关系》
-        note right of 泛化关系 : 子类（ConcreteBuilder）继承父类（Builder）
+        Builder <|-- ConcreteBuilder : 泛化关系 :\n 子类（ConcreteBuilder）\n继承父类（Builder）
+'        note "泛化关系 :\n 子类（ConcreteBuilder）\n继承父类（Builder）" as N2
+'        Builder .. N2
+'        N2 .. ConcreteBuilder
 
-        ConcreteBuilder ..> Product  : 《依赖关系》
-        note right of 依赖关系 : 一个类（ConcreteBuilder）的实现需要另一个类（Product）的协助，因为ConcreteBuilder在组装过程中需要一个Product
+        ConcreteBuilder ..> Product  : 依赖关系 : \n一个类（ConcreteBuilder）\n的实现需要另一个类\n（Product）的协助，\n因为ConcreteBuilder\n在组装过程中需要一个\nProduct
+'        note "依赖关系 : \n一个类（ConcreteBuilder）\n的实现需要另一个类\n（Product）的协助，\n因为ConcreteBuilder\n在组装过程中需要一个\nProduct" as N3
+'        ConcreteBuilder .. N3
+'        N3 .. Product
+
 
     }
 
